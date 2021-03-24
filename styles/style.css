@@ -1,0 +1,30 @@
+/*---Media Queries --*/
+
+@media (max-width: 576px) { 
+.panel .panel-image{
+    display: none;
+}
+}
+
+@media (min-width: 768px) { 
+.panel .panel-image{
+    height: 9in;
+}
+}
+
+@media (min-width: 992px) {  }
+
+@media (min-width: 1200px) {  }
+
+@media (min-width: 1400px) {  }
+
+
+.container {
+    position:fixed; 
+    top:50%; 
+    left:50%; 
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
+    background-color:#b79f79; 
+    border-radius:25px
+}
