@@ -1,0 +1,1 @@
+This folder is for the db DAO, and controller to sign in the user (there should only be 1-3 users in the database table, for we are not implying a sign-up form).
