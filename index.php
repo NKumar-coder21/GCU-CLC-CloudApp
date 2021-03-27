@@ -36,6 +36,13 @@
                                 </div>
                                 <input type="submit" value="Log In" class="btn btn-success mt-4">
                             </form>
+                            <?php 
+                            include('LoginDirect.php');
+                            if(isset($_POST['Log In'])){
+                                RedirectToDashBoard($_POST['username'],$_POST['password']);
+                            }
+                            
+                            ?>
                         </div>
                     </div>
                 </div>
