@@ -25,24 +25,17 @@
                             </div>
                             <!--Form for sign in here-->
                             <!-- controller must ONLY check that Admin is logged in -->
-                            <form action="#" method="post">
+                            <form action="./controller/data/LoginDirect.php" method="POST">
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username">
+                                    <input type="text" name='username' class="form-control" id="username">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" name='password' class="form-control" id="password">
                                 </div>
-                                <input type="submit" value="Log In" class="btn btn-success mt-4">
+                                <input type="submit" value="Log In" name='submit' class="btn btn-success mt-4">
                             </form>
-                            <?php 
-                            include('LoginDirect.php');
-                            if(isset($_POST['Log In'])){
-                                RedirectToDashBoard($_POST['username'],$_POST['password']);
-                            }
-                            
-                            ?>
                         </div>
                     </div>
                 </div>

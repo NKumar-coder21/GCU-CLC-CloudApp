@@ -1,28 +1,16 @@
 <?php 
-include("UserDataService");
-include("index.php");
+require_once __DIR__ . '\\..\\..\\Autoloader.php';
 
-Class LoginDirect {
-    
-   
-    
-    public function RedirectToDashBoard($username,$password){
-        
-        
-        
-        #Verifies the Authentication made from UserDataService
-        if(authenticate($username,$password) == -1){
-            header('Location: index.php');
-        }
-        else{
-            header('Location: dashboard.php');
-        }
-    }
-    
-    
-    
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$service = new UserBusinessService();
+
+#Verifies the Authentication made from UserBusinessService
+if($service->authenticate($username,$password) == -1){
+    header('Location: /GCU-CLC-CloudApp');
 }
-
-
-
+else{
+    header('Location: /GCU-CLC-CloudApp/views/dashboard.php');
+}
 ?>
