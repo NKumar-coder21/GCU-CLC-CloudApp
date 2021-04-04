@@ -1,7 +1,8 @@
-<!DOCTYPE html>
 <?php
+session_start();
 $selected_page = basename($_SERVER['PHP_SELF']);
 ?>
+<!DOCTYPE html>
 <html>
 
     <head>
@@ -25,7 +26,7 @@ $selected_page = basename($_SERVER['PHP_SELF']);
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="dashboard.php"><img style="height: 80px; width: 180px; object-fit:cover;"
-                        src="../img/logo.png"></a>
+                        src="img/logo.png"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -38,14 +39,32 @@ $selected_page = basename($_SERVER['PHP_SELF']);
                         <a class="<?php if ($selected_page == 'products.php') echo 'active'; ?> nav-link"
                             href="products.php"><i class="fas fa-box-open"></i> Products</a>
                         <a class="<?php if ($selected_page == 'vendors.php') echo 'active'; ?> nav-link"
-                            href="vendors.php"><i class="fas fa-industry"></i> Vendors</a>
+                            href="vendors.php"><i class="fas fa-industry"></i> Suppliers</a>
                         <a class="<?php if ($selected_page == 'employees.php') echo 'active'; ?> nav-link"
                             href="employees.php"><i class="fas fa-users"></i> Employees</a>
                     </div>
                     <div class="navbar-nav ms-auto">
-                        <span class="navbar-text"><b>Welcome, Admin!</b></span>
-                        <a class="nav-link" href="#">Logout</a>
+                        <span class="navbar-text"><b>Welcome, <?php echo $_SESSION["sessionName"] ?>!</b></span>
+                        <a class="nav-link" href="../controller/logout.action.php">Logout</a>
                     </div>
                 </div>
             </div>
         </nav>
+        <div class="container-fluid bg-dark">
+            <div class="row list-inline">
+                <div class="col-6">
+                    <h1 class="display-3 list-inline-item text-white">
+                        <?php if ($selected_page == 'dashboard.php') echo 'Dashboard'; ?>
+                        <?php if ($selected_page == 'products.php') echo 'Products'; ?>
+                        <?php if ($selected_page == 'vendors.php') echo 'Suppliers'; ?>
+                        <?php if ($selected_page == 'employees.php') echo 'Employees'; ?>
+                    </h1>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <?php if ($selected_page == 'vendors.php') echo ' <a href="#" class="btn btn-lg list-inline-item mt-3" type="button" style="float: right;">Add New Supplier</a>'; ?>
+                    <?php if ($selected_page == 'employees.php') echo ' <a href="#" class="btn btn-lg list-inline-item mt-3" type="button" style="float: right;">Add New Employees</a>'; ?>
+
+                </div>
+            </div>
+        </div>
