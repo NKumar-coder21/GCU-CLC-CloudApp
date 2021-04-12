@@ -1,4 +1,10 @@
 <?php
+//Messager code
+$file = basename(__FILE__, '.php');
+require "logginglog.php";
+$message = new logginglog();
+
+$message->newInfoMessage($file, "DB connection called");
 //connect to the database
 $servername = "localhost";
 $DBuser = "root";
@@ -15,7 +21,9 @@ $success = mysqli_connect(
     $DBsock
 );
 if (!$success) {
+    $message->newErrorMessage($file, "DB connections has failed");
     die("Connection to DB failed: " . mysqli_connect_error());
 } else {
+    $message->newInfoMessage($file, "DB connections is sucessful");
     $connection = $success;
 }
