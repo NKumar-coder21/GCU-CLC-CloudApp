@@ -6,15 +6,17 @@ $message = new logginglog();
 
 $message->newInfoMessage($file, "DB connection called");
 //connect to the database
-$servername = 127.0.0.1:52148;
+$servername = 127.0.0.1;
 $DBuser = "azure";
 $DBpass = "6#vWHD_$";
 $DBname = "localdb";
+$DBport = 52148;
 $success = mysqli_connect(
     $servername,
     $DBuser,
     $DBpass,
-    $DBname
+    $DBname,
+    $DBport
 );
 if (!$success) {
     $message->newErrorMessage($file, "DB connections has failed");
