@@ -76,10 +76,10 @@ $(document).ready(function() {
 } else {
     //Messager code
     $file = basename(__FILE__, '.php');
-    require "../controller/logginglog.php";
+    require_once "../controller/logginglog.php";
     $message = new logginglog();
 
-    $message->newWarningMessage($file, "USER HAS TRY TO ACCESS" . $file . " WITH NO SESSION STARTED! REDIRECTING USER...");
+    $message->newErrorMessage($file, "USER HAS TRY TO ACCESS " . $file . " WITH NO SESSION STARTED! REDIRECTING USER...");
     header("Location: ../index.php");
     exit();
 }

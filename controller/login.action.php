@@ -1,7 +1,7 @@
 <?php
 //Messager code
 $file = basename(__FILE__, '.php');
-require "logginglog.php";
+require_once "logginglog.php";
 $message = new logginglog();
 
 if (isset($_POST['Login_submit'])) {
